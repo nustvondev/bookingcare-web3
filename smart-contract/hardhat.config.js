@@ -10,7 +10,13 @@ module.exports = {
       accounts: [
         `0xcb6672b4bc1e63053c1e0fa7d99a4c39bff5b32f1e5d6596bbde92e9ea8f7f96`,
       ],
-      chainId: 11155111,
+      // chainId: 11155111,
     },
+  },
+  etherscan: {
+    apiKey: "R2GGIXQ2M6XFS3MA5FPAEDDCEHT8SQVPMP",
+  },
+  sourcify: {
+    enabled: true,
   },
 };
