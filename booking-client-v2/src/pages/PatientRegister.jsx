@@ -15,7 +15,11 @@ import locale from "antd/es/date-picker/locale/vi_VN";
 import dayjs from "dayjs";
 import "dayjs/locale/vi";
 import React, { useState } from "react";
-import { dateFormatList, genderOption } from "../constants/global";
+import {
+  dateFormatList,
+  dunmyPatient,
+  genderOption,
+} from "../constants/global";
 import Layouts from "../layout/Layouts";
 import upload from "../utils/upload";
 import { record, web3 } from "../constants";
@@ -92,6 +96,20 @@ const PatientRegister = () => {
 
     setCurrent({
       ...initForm,
+    });
+  };
+  const dumyPatientData = () => {
+    let dt = dunmyPatient;
+    setCurrent({
+      ...current,
+      ic: dt.ic,
+      name: dt.name,
+      phone: dt.phone,
+      gender: dt.gender,
+      dob: dt.dob,
+      addressHome: dt.addressHome,
+      bloodgroup: dt.bloodgroup,
+      medication: dt.medication,
     });
   };
   return (
@@ -174,7 +192,7 @@ const PatientRegister = () => {
             <Col span={8}>
               <Form.Item label="Giới tính">
                 <Select
-                  defaultValue={current.gender}
+                  value={current.gender}
                   options={genderOption}
                   onChange={(e) => {
                     setCurrent({ ...current, gender: e });
@@ -239,6 +257,11 @@ const PatientRegister = () => {
         <Button type="primary" loading={current.loading} onClick={handleSubMid}>
           Tạo hồ sơ
         </Button>
+        {current.name === "dd" && (
+          <Button type="primary" onClick={dumyPatientData}>
+            Dữ liệu mẫu
+          </Button>
+        )}
       </Card>
     </Layouts>
   );

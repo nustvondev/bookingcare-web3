@@ -240,7 +240,7 @@ const EditDoctor = () => {
           </Row>
         </Form>
         <Button type="primary" loading={current.loading} onClick={handleSubMid}>
-          Tạo hồ sơ
+          Cập nhật hồ sơ
         </Button>
       </Card>
     </Layouts>

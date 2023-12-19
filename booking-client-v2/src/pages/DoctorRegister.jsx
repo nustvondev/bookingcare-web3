@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/vi";
 import {
   dateFormatList,
+  dunmyDoctor,
   genderOption,
   qualificationOptions,
 } from "../constants/global";
@@ -76,6 +77,19 @@ const DoctorRegister = () => {
 
     setCurrent({
       ...initForm,
+    });
+  };
+  const dumyDoctorData = () => {
+    let dataTmp = dunmyDoctor;
+    setCurrent({
+      ...current,
+      ic: dataTmp.ic,
+      name: dataTmp.name,
+      phone: dataTmp.phone,
+      gender: dataTmp.gender,
+      dob: dataTmp.dob,
+      qualification: dataTmp.qualification,
+      major: dataTmp.major,
     });
   };
   return (
@@ -158,7 +172,7 @@ const DoctorRegister = () => {
             <Col span={8}>
               <Form.Item label="Giới tính">
                 <Select
-                  defaultValue={current.gender}
+                  value={current.gender}
                   options={genderOption}
                   onChange={(e) => {
                     setCurrent({ ...current, gender: e });
@@ -187,7 +201,7 @@ const DoctorRegister = () => {
             <Col span={12}>
               <Form.Item label="Trình độ chuyên môn">
                 <Select
-                  defaultValue={current.qualification}
+                  value={current.qualification}
                   options={qualificationOptions}
                   onChange={(e) => {
                     setCurrent({ ...current, qualification: e });
@@ -211,6 +225,11 @@ const DoctorRegister = () => {
         <Button type="primary" loading={current.loading} onClick={handleSubMid}>
           Tạo hồ sơ
         </Button>
+        {current.name === "dd" && (
+          <Button type="primary" onClick={dumyDoctorData}>
+            Dữ liệu mẫu
+          </Button>
+        )}
       </Card>
     </Layouts>
   );

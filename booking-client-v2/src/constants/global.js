@@ -54,3 +54,37 @@ export const statusOptions = [
   { label: "Đang chờ", value: "P" },
   { label: "Đã xong", value: "S" },
 ];
+
+export const dunmyPatient = {
+  ic: generateRandomNumberString(12),
+  name: "Bệnh nhân demo",
+  phone: generateRandomNumberString(10),
+  gender: "M",
+  dob: "01-01-1999",
+  addressHome: "Địa chỉ demo",
+  bloodgroup: "B+",
+  medication: "Tim",
+};
+export const dunmyDoctor = {
+  ic: generateRandomNumberString(12),
+  name: "Bác sĩ demo",
+  phone: generateRandomNumberString(10),
+  gender: "M",
+  dob: "01-01-1999",
+  qualification: "BS",
+  major: "Y học",
+};
+
+//util
+
+function generateRandomNumberString(length) {
+  const characters = "0123456789";
+  let result = "";
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    result += characters[randomIndex];
+  }
+
+  return result;
+}
